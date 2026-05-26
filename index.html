@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Mijn App">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="style.css?v=4">
+  <title>Mijn App</title>
+</head>
+<body>
+  <div class="screen" id="screen">
+    <img id="foto" src="foto1.jpg" alt="Foto">
+  </div>
+
+  <script>
+    const foto = document.getElementById("foto");
+    let gestart = false;
+
+    function gaNaarScherm2() {
+      if (gestart) return;
+      gestart = true;
+
+      setTimeout(() => {
+        foto.src = "foto2.jpg";
+      }, 2000);
+    }
+
+    const screen = document.getElementById("screen");
+    screen.addEventListener("touchstart", gaNaarScherm2, { passive: true });
+    screen.addEventListener("click", gaNaarScherm2);
+  </script>
+</body>
+</html>
